@@ -65,7 +65,7 @@ if 'page' not in st.session_state:
 with st.sidebar:
     st.title("Menu")
     if st.button("Kalkulator Ksp"): 
-    st.session_state['page'] = "Kalkulator Ksp"
+        st.session_state['page'] = "Kalkulator Ksp"
         
     if st.button("Prediksi Endapan"):
         st.session_state['page'] = 'Prediksi Endapan'
