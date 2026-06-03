@@ -181,3 +181,5 @@ elif page == "Prediksi Endapan":
 #OKE#
 elif page == "Tentang Kami":
     st.title("⚖️ Kalkulator Prediksi Endapan")
+    st.markdown("Bandingkan nilai **Quotient Reaksi (Qsp)** dengan **Ksp** untuk memprediksi apakah suatu campuran akan menghasilkan endapan.")
+    st.divider()
