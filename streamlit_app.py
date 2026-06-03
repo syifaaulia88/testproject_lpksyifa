@@ -216,11 +216,11 @@ Aplikasi ini merupakan hasil Proyek Tugas Website untuk mata kuliah Logika Pemro
 
 👥 Anggota Kelompok:
 
-Athiyah Amini Azzahra — 2560587  
-Ryel Fandralaro  — 2560766 
-Syifa Aulia Farani Pasha   — 2560792  
-Zahra Fitria Sukmawan  — 2560809  
-Zalika Imani Hamida  — 2560810  
+- Athiyah Amini Azzahra — 2560587  
+- Ryel Fandralaro  — 2560766 
+- Syifa Aulia Farani Pasha   — 2560792  
+- Zahra Fitria Sukmawan  — 2560809  
+- Zalika Imani Hamida  — 2560810  
 Kelas: 1D
 
 🎓 Program Studi: Analisis Kimia
