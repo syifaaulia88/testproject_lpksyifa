@@ -180,4 +180,4 @@ elif page == "Prediksi Endapan":
 
 #OKE#
 elif page == "Tentang Kami":
-    st.title("yyyy")
+    st.title("⚖️ Kalkulator Prediksi Endapan")
