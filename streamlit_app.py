@@ -2,7 +2,7 @@ import streamlit as st
 import math
 
 # Konfigurasi Halaman Web
-st.set_page_config(page_title="ChemSolv: Smart Solution for Solubility", layout="centered", page_icon="🧪")
+st.set_page_config(page_title="ChemSolv: Smart Solution for Solubility", layout="wide", page_icon="🧪")
 
 # 2. Injeksi CSS Kustom (Sidebar Hijau Pastel, Menu & Tombol Pink Tua)
 st.markdown("""
