@@ -77,8 +77,8 @@ with st.sidebar:
 # FITUR 1: KALKULATOR KELARUTAN & KSP
 # ==========================================
 if page == "Kalkulator Ksp":
-    st.title("🧪 ChemSolv: Kalkulator Kelarutan dan Ksp")
-    st.title("🧪 ChemSolv: Kalkulator Kelarutan dan Ksp")
+    st.title("🧪 ChemSolv: Smart Solution for Solubility")
+    st.subheader("📲 Kalkulator Kelarutan dan Ksp")
     st.markdown("Hitung **Kelarutan (s)** dari **Ksp**, atau sebaliknya, berdasarkan stoikiometri senyawa.")
     st.divider()
 
@@ -142,7 +142,7 @@ if page == "Kalkulator Ksp":
 # FITUR 2: PREDIKSI ENDAPAN (Qsp vs Ksp)
 # ==========================================
 elif page == "Prediksi Endapan":
-    st.title("🧪 ChemSolv: Kalkulator Kelarutan dan Ksp")
+    st.title("🧪 ChemSolv: Smart Solution for Solubility")
     st.subheader("⚖️ Kalkulator Prediksi Endapan")
     st.markdown("Bandingkan nilai **Quotient Reaksi (Qsp)** dengan **Ksp** untuk memprediksi apakah suatu campuran akan menghasilkan endapan.")
     st.divider()
