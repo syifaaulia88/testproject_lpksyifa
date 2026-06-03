@@ -117,8 +117,12 @@ if page == "Kalkulator Ksp":
 
     # Logika Perhitungan: Ksp dari Kelarutan (s)
     else:
-        s_val = st.number_input("Masukkan Nilai Kelarutan (s) dalam mol/L (contoh: 1.0e-5):", 
-                                value=1.0e-5, format="%.2e", step=1e-6)
+       s_val = st.number_input(
+    "Masukkan Nilai Kelarutan (s) dalam mol/L (contoh: 1 × 10⁻⁵):",
+    value=1.0e-5,
+    format="%.2e",
+    step=1e-6
+)
         
         if st.button("Hitung Nilai Ksp"):
             if "AB " in senyawa_type:
