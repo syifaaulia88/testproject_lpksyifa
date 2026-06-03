@@ -11,6 +11,7 @@ st.markdown("""
     [data-testid="stAppViewContainer"] {
         background-color: #fff0f3 !important;
     }
+    stApp::before {{ content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
     [data-testid="stHeader"] {
         background-color: rgba(0,0,0,0) !important;
     }
