@@ -67,6 +67,9 @@ with st.sidebar:
         
     if st.button("Prediksi Endapan"):
         st.session_state['page'] = 'Prediksi Endapan'
+
+     if st.button("Tentang Kami"):
+        st.session_state['page'] = 'Tentang Kami'
     page = st.session_state['page'] 
     st.sidebar.divider()
 
@@ -174,3 +177,7 @@ elif page == "Prediksi Endapan":
             st.warning("Hasil: Qsp = Ksp. **Larutan Tepat Jenuh** (Belum mengendap). ⚖️")
         else:
             st.success("Hasil: Qsp < Ksp. **Tidak Terjadi Endapan** (Semua larut). 💧")
+
+#OKE#
+elif page == "Tentang Kami":
+    st.title("yyyy")
