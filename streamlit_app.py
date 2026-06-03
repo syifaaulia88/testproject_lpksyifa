@@ -79,7 +79,7 @@ if page == "Kalkulator Ksp":
     st.markdown("Hitung **Kelarutan (s)** dari **Ksp**, atau sebaliknya, berdasarkan stoikiometri senyawa.")
     st.divider()
 
-    mode = st.radio("Pilih Jenis Perhitungan:", 
+    mode = st.radio("**Pilih Jenis Perhitungan:**", 
                     ("Hitung Kelarutan (s) dari nilai Ksp", "Hitung Ksp dari nilai Kelarutan (s)"))
 
     senyawa_type = st.selectbox("Pilih Jenis Senyawa (Berdasarkan Stoikiometri):", 
