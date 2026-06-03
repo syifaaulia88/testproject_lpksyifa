@@ -94,7 +94,7 @@ if page == "Kalkulator Ksp":
 
     # Logika Perhitungan: Kelarutan (s) dari Ksp
     if mode == "Hitung Kelarutan (s) dari nilai Ksp":
-        ksp_val = st.number_input("Masukkan Nilai Ksp (Gunakan format e, contoh: 1.0e-10):", 
+        ksp_val = st.number_input("Masukkan Nilai Ksp (Gunakan format e (e adalah × 10 pangkat), contoh: 1.0e-10):", 
                                   value=1.0e-10, format="%.2e", step=1e-11)
         
         if st.button("Hitung Kelarutan (s)"):
