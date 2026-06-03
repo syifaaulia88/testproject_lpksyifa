@@ -177,14 +177,14 @@ elif page == "Prediksi Endapan":
         if qsp > ksp:
             st.error("Hasil: Qsp > Ksp. **Terjadi Endapan!** ⬇️")
         elif qsp == ksp:
-            st.warning("Hasil: Qsp = Ksp. **Larutan Tepat Jenuh** (Belum mengendap). ⚖️")
+            st.warning("Hasil: Qsp = Ksp. **Larutan Tepat Jenuh** (Belum mengendap). ❌")
         else:
             st.success("Hasil: Qsp < Ksp. **Tidak Terjadi Endapan** (Semua larut). 💧")
 
 #OKE#
 elif page == "Tentang Kami":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
-    st.subheader("⚖️ Kalkulator Prediksi Endapan")
+    st.subheader("⬇️ Prediksi Endapan")
     st.write("""
 
 Dalam kimia fisik dan kimia analisis, memahami serta menghitung kesetimbangan larutan merupakan keterampilan dasar yang sangat penting. Materi kesetimbangan, mulai dari menentukan kelarutan suatu zat hingga memprediksi kapan endapan akan mulai terbentuk, menjadi bagian tak terpisahkan dari praktikum maupun kegiatan analisis di laboratorium. Namun, tidak jarang pelajar atau praktisi merasa kesulitan ketika harus melakukan perhitungan ini secara manual, apalagi saat menghadapi rumus stoikiometri ion yang berbeda-beda serta perhitungan eksponen yang cukup rumit.
