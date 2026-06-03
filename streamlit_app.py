@@ -59,6 +59,9 @@ if 'page' not in st.session_state:
     st.session_state['page'] = "Tentang Kami" 
 with st.sidebar:
     st.title("✨ Menu ChemSolv ✨")
+    if st.button("Home"): 
+        st.session_state['page'] = "Home"
+    
     if st.button("Kalkulator Ksp"): 
         st.session_state['page'] = "Kalkulator Ksp"
         
@@ -70,10 +73,31 @@ with st.sidebar:
     page = st.session_state['page'] 
     st.sidebar.divider()
 
+
+if page == "Home":
+    st.title("🧪 ChemSolv: Smart Solution for Solubility")
+    st.subheader("Selamat Datang di aplikasi ChemSolv!!")
+    st.write("""
+
+Dalam kimia fisik dan kimia analisis, memahami serta menghitung kesetimbangan larutan merupakan keterampilan dasar yang sangat penting. Materi kesetimbangan, mulai dari menentukan kelarutan suatu zat hingga memprediksi kapan endapan akan mulai terbentuk, menjadi bagian tak terpisahkan dari praktikum maupun kegiatan analisis di laboratorium. Namun, tidak jarang pelajar atau praktisi merasa kesulitan ketika harus melakukan perhitungan ini secara manual, apalagi saat menghadapi rumus stoikiometri ion yang berbeda-beda serta perhitungan eksponen yang cukup rumit.
+​Sebagai respons terhadap kebutuhan tersebut, kami menghadirkan ChemSolv - Kalkulator Ksp, sebuah aplikasi berbasis web yang dirancang khusus untuk membantu pengguna dalam melakukan berbagai perhitungan kesetimbangan kimia larutan dengan cepat dan akurat. Aplikasi ini mencakup fitur:
+
+* Perhitungan Kelarutan (s) secara otomatis berdasarkan nilai Ksp yang diketahui.
+* Perhitungan Konstanta Ksp secara instan dari data kelarutan senyawa.
+* Prediksi Pembentukan Endapan dengan membandingkan nilai Quotient Reaksi (Qsp) dan Ksp.
+* Dukungan Multi-Stoikiometri untuk berbagai bentuk rumus senyawa (seperti tipe AB, AB₂, AB₃, hingga A₂B₃).
+
+​Aplikasi ini dikembangkan sebagai bagian dari Tugas Akhir LPK (Laporan Praktikum Kimia) dengan tujuan memberikan kontribusi nyata dalam pembelajaran kimia larutan dan aktivitas laboratorium, khususnya di bidang kesetimbangan kimia. Dengan antarmuka yang sederhana, estetis, dan fungsional, diharapkan ChemSolv dapat menjadi alat bantu yang andal bagi siswa, mahasiswa, guru, analis, maupun siapa saja yang sedang mempelajari atau bekerja dengan kimia larutan.
+​Gunakan aplikasi ini untuk memperkuat pemahaman konsep dan meningkatkan ketelitian dalam perhitungan kimia Anda. 
+
+Selamat menggunakan, dan semoga bermanfaat!
+
+    """)
+
 # ==========================================
 # FITUR 1: KALKULATOR KELARUTAN & KSP
 # ==========================================
-if page == "Kalkulator Ksp":
+else page == "Kalkulator Ksp":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
     st.subheader("📲 Kalkulator Kelarutan dan Ksp")
     st.markdown("Hitung **Kelarutan (s)** dari **Ksp**, atau sebaliknya, berdasarkan stoikiometri senyawa.")
