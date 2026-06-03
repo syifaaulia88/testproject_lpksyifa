@@ -82,7 +82,7 @@ if page == "Kalkulator Ksp":
     mode = st.radio("**Pilih Jenis Perhitungan:**", 
                     ("Hitung Kelarutan (s) dari nilai Ksp", "Hitung Ksp dari nilai Kelarutan (s)"))
 
-    senyawa_type = st.selectbox("Pilih Jenis Senyawa (Berdasarkan Stoikiometri):", 
+    senyawa_type = st.selectbox("**Pilih Jenis Senyawa (Berdasarkan Stoikiometri):**", 
                                 ("AB (Contoh: AgCl, BaSO₄)", 
                                  "AB₂ atau A₂B (Contoh: PbCl₂, Ag₂CrO₄)", 
                                  "AB₃ atau A₃B (Contoh: Al(OH)₃, Ag₃PO₄)", 
