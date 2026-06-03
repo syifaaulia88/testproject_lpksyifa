@@ -69,7 +69,6 @@ with st.sidebar:
         st.session_state['page'] = 'Prediksi Endapan'
     page = st.session_state['page'] 
     st.sidebar.divider()
-    st.sidebar.caption("💚 Tema: Pastel Green & Deep Pink")
 
 # ==========================================
 # FITUR 1: KALKULATOR KELARUTAN & KSP
