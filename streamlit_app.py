@@ -208,7 +208,6 @@ elif page == "Prediksi Endapan":
 #OKE#
 elif page == "Tentang Kami":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
-    st.subheader("Selamat Datang di aplikasi ChemSolv!!")
     st.write("""
 
 👨‍💻 Tim Pengembang
