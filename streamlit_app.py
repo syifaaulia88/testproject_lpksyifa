@@ -149,7 +149,7 @@ elif page == "Prediksi Endapan":
     st.divider()
 
     st.subheader("1. Data Konstanta Ksp")
-    ksp = st.number_input("Masukkan nilai Ksp:", format="%e", value=1.0e-10)
+    ksp = st.number_input("Masukkan nilai Ksp {Gunakan format e (e adalah × 10 pangkat), contoh: 1.0e-10}:", format="%e", value=1.0e-10)
 
     st.subheader("2. Konsentrasi Ion dalam Campuran")
     kolom_kation, kolom_anion = st.columns(2)
