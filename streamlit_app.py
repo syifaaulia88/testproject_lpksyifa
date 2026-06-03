@@ -74,7 +74,7 @@ with st.sidebar:
         
     if st.button("Prediksi Endapan"):
         st.session_state.halaman = 'Prediksi Endapan'
-
+    page = st.session_state['page'] 
     st.sidebar.divider()
     st.sidebar.caption("💚 Tema: Pastel Green & Deep Pink")
 
@@ -91,7 +91,7 @@ st.sidebar.caption("Aplikasi ini dibuat sebagai alat bantu pembelajaran kesetimb
 # ==========================================
 # FITUR 1: KALKULATOR KELARUTAN & KSP
 # ==========================================
-if menu == "1. Kalkulator Kelarutan & Ksp":
+if page == "Kalkulator Ksp":
     st.title("🧪 ChemSolv: Kalkulator Kelarutan dan Ksp")
     st.markdown("Hitung **Kelarutan (s)** dari **Ksp**, atau sebaliknya, berdasarkan stoikiometri senyawa.")
     st.divider()
