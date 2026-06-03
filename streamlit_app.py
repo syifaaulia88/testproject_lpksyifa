@@ -143,7 +143,7 @@ if page == "Kalkulator Ksp":
 # ==========================================
 elif page == "Prediksi Endapan":
     st.title("🧪 ChemSolv: Kalkulator Kelarutan dan Ksp")
-    st.title("⚖️ Kalkulator Prediksi Endapan")
+    st.subtitle("⚖️ Kalkulator Prediksi Endapan")
     st.markdown("Bandingkan nilai **Quotient Reaksi (Qsp)** dengan **Ksp** untuk memprediksi apakah suatu campuran akan menghasilkan endapan.")
     st.divider()
 
