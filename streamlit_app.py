@@ -56,7 +56,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 if 'page' not in st.session_state: 
-    st.session_state['page'] = "Tentang Kami" 
+    st.session_state['page'] = "Home" 
 with st.sidebar:
     st.title("✨ Menu ChemSolv ✨")
     if st.button("Home"): 
