@@ -124,19 +124,22 @@ if page == "Kalkulator Ksp":
     step=1e-6
 )
         
-        if st.button("Hitung Nilai Ksp"):
-            if "AB " in senyawa_type:
-                ksp = s_val ** 2
-                rumus = r"K_{sp} = s^2"
-            elif "AB₂" in senyawa_type:
-                ksp = 4 * (s_val ** 3)
-                rumus = r"K_{sp} = 4s^3"
-            elif "AB₃" in senyawa_type:
-                ksp = 27 * (s_val ** 4)
-                rumus = r"K_{sp} = 27s^4"
-            elif "A₂B₃" in senyawa_type:
-                ksp = 108 * (s_val ** 5)
-                rumus = r"K_{sp} = 108s^5"
+  if st.button("Hitung Nilai Ksp"):
+    if "AB " in senyawa_type:
+        ksp = s_val ** 2
+        rumus = r"K_{sp} = s^2"
+
+    elif "AB₂" in senyawa_type:
+        ksp = 4 * (s_val ** 3)
+        rumus = r"K_{sp} = 4s^3"
+
+    elif "AB₃" in senyawa_type:
+        ksp = 27 * (s_val ** 4)
+        rumus = r"K_{sp} = 27s^4"
+
+    elif "A₂B₃" in senyawa_type:
+        ksp = 108 * (s_val ** 5)
+        rumus = r"K_{sp} = 108s^5"
                 
             st.success(f"**Nilai Ksp = {ksp:.4e}**")
             st.info("Rumus yang digunakan:")
