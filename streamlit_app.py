@@ -60,20 +60,15 @@ st.markdown("""
 
 
 # 3. Inisialisasi Session State untuk Navigasi Menu
-if 'halaman' not in st.session_state:
-    st.session_state.halaman = 'Kalkulator Ksp'
-
-
-# 4. Struktur Sidebar (Hijau Pastel dengan Elemen Pink Tua)
+if 'page' not in st.session_state: 
+    st.session_state['page'] = "Home" 
 with st.sidebar:
-    st.markdown('<p class="judul-menu">Menu Kalkulator</p>', unsafe_allow_html=True)
-    
-    # Tombol navigasi vertikal ala gambar COC
-    if st.button("Kalkulator Ksp"):
-        st.session_state.halaman = 'Kalkulator Ksp'
+    st.title("Menu"
+    if st.button("Kalkulator Ksp"): 
+    st.session_state['page'] = "Kalkulator Ksp"
         
     if st.button("Prediksi Endapan"):
-        st.session_state.halaman = 'Prediksi Endapan'
+        st.session_state['page'] = 'Prediksi Endapan'
     page = st.session_state['page'] 
     st.sidebar.divider()
     st.sidebar.caption("💚 Tema: Pastel Green & Deep Pink")
@@ -155,7 +150,7 @@ if page == "Kalkulator Ksp":
 # ==========================================
 # FITUR 2: PREDIKSI ENDAPAN (Qsp vs Ksp)
 # ==========================================
-elif menu == "2. Prediksi Endapan (Qsp vs Ksp)":
+elif page == "Prediksi Endapan":
     st.title("⚖️ Kalkulator Prediksi Endapan")
     st.markdown("Bandingkan nilai **Quotient Reaksi (Qsp)** dengan **Ksp** untuk memprediksi apakah suatu campuran akan menghasilkan endapan.")
     st.divider()
