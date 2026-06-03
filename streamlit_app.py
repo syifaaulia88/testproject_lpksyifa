@@ -64,12 +64,15 @@ with st.sidebar:
     st.title("Menu ChemSolv")
     if st.button("Kalkulator Ksp"): 
         st.session_state['page'] = "Kalkulator Ksp"
+        st.title("🧪 ChemSolv: Kalkulator Kelarutan dan Ksp")
         
     if st.button("Prediksi Endapan"):
         st.session_state['page'] = 'Prediksi Endapan'
+        st.title("🧪 ChemSolv: Kalkulator Kelarutan dan Ksp")
 
     if st.button("Tentang Kami"):
         st.session_state['page'] = 'Tentang Kami'
+        st.title("🧪 ChemSolv: Kalkulator Kelarutan dan Ksp")
     page = st.session_state['page'] 
     st.sidebar.divider()
 
