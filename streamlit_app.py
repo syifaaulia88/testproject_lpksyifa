@@ -200,6 +200,6 @@ elif page == "Tentang Kami":
 ​Gunakan aplikasi ini untuk memperkuat pemahaman konsep dan meningkatkan ketelitian dalam perhitungan kimia Anda. 
 Selamat menggunakan, dan semoga bermanfaat!
 
-"""
+    """)
 
     
