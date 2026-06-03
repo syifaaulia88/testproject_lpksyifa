@@ -68,7 +68,7 @@ with st.sidebar:
     if st.button("Prediksi Endapan"):
         st.session_state['page'] = 'Prediksi Endapan'
 
-     if st.button("Tentang Kami"):
+    if st.button("Tentang Kami"):
         st.session_state['page'] = 'Tentang Kami'
     page = st.session_state['page'] 
     st.sidebar.divider()
