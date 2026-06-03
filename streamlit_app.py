@@ -58,6 +58,19 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+if 'page' not in st.session_state: 
+    st.session_state['page'] = "Home" 
+with st.sidebar:
+    st.title("Menu")
+    if st.button("Kalkulator Ksp"): 
+        st.session_state['page'] = "Kalkulator Ksp"
+        
+    if st.button("Prediksi Endapan"):
+        st.session_state['page'] = 'Prediksi Endapan'
+    page = st.session_state['page'] 
+    st.sidebar.divider()
+    st.sidebar.caption("💚 Tema: Pastel Green & Deep Pink")
+
 # ==========================================
 # FITUR 1: KALKULATOR KELARUTAN & KSP
 # ==========================================
