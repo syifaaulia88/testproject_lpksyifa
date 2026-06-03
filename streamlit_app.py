@@ -97,7 +97,7 @@ Selamat menggunakan, dan semoga bermanfaat!
 # ==========================================
 # FITUR 1: KALKULATOR KELARUTAN & KSP
 # ==========================================
-else page == "Kalkulator Ksp":
+elif page == "Kalkulator Ksp":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
     st.subheader("📲 Kalkulator Kelarutan dan Ksp")
     st.markdown("Hitung **Kelarutan (s)** dari **Ksp**, atau sebaliknya, berdasarkan stoikiometri senyawa.")
