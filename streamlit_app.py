@@ -61,6 +61,19 @@ st.markdown("""
     .stHeader h2 {
         color: #d81b60;
     }
+    /* 1. Memperbesar Judul/Header Expander saat ditutup/dibuka */
+    [data-testid="stExpander"] details summary p {
+        font-size: 18px !important;  /* Ubah angka ini jika ingin lebih besar/kecil */
+        font-weight: bold !important;
+        color: #31333F !important;
+    }
+    
+    /* 2. Memperbesar Teks Isi/Konten di dalam Expander */
+    [data-testid="stExpander"] [data-testid="stMarkdownContainer"] p {
+        font-size: 16px !important;  /* Ubah angka ini jika ingin lebih besar/kecil */
+        line-height: 1.6 !important; /* Mengatur jarak antar baris kalimat agar rapi */
+        color: #31333F !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
