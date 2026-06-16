@@ -86,62 +86,51 @@ with st.sidebar:
         
     st.sidebar.divider()
 
-
-# --- KONTROL DRAG-DOWN (SELECTBOX) PADA MAIN SCREEN ---
-# Menentukan indeks default pada selectbox utama agar sinkron dengan tombol sidebar
- 
-menu_options = [
-    "Home (Deskripsi Aplikasi)", 
-    "Kalkulator Ksp (Fitur 1)", 
-    "Prediksi Endapan (Fitur 2)", 
-    "Tentang Kami"
-]
-
-current_idx = 0
-if st.session_state['page'] == "Kalkulator Ksp":
-    current_idx = 1
-elif st.session_state['page'] == "Prediksi Endapan":
-    current_idx = 2
-elif st.session_state['page'] == "Tentang Kami":
-    current_idx = 3
-
-# Menampilkan menu drag-down tepat di bagian paling atas layar utama
-pilihan_main = st.selectbox("⬇️ **Pilih Halaman / Fitur Melalui Menu Ini:**", menu_options, index=current_idx)
-
-# Memperbarui status halaman berdasarkan pilihan di menu drag-down
-if pilihan_main == "Home (Deskripsi Aplikasi)":
-    st.session_state['page'] = "Home"
-elif pilihan_main == "Kalkulator Ksp (Fitur 1)":
-    st.session_state['page'] = "Kalkulator Ksp"
-elif pilihan_main == "Prediksi Endapan (Fitur 2)":
-    st.session_state['page'] = "Prediksi Endapan"
-elif pilihan_main == "Tentang Kami":
-    st.session_state['page'] = "Tentang Kami"
-
-# Mengambil variabel halaman yang aktif saat ini
 page = st.session_state['page']
-
 
 # --- KONTEN HALAMAN ---
 if page == "Home":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
     st.subheader("Selamat Datang di aplikasi ChemSolv!!")
-    st.write("""
-Dalam kimia fisik dan kimia analisis, memahami serta menghitung kesetimbangan larutan merupakan keterampilan dasar yang sangat penting. Materi kesetimbangan, mulai dari menentukan kelarutan suatu zat hingga memprediksi kapan endapan akan mulai terbentuk, menjadi bagian tak terpisahkan dari praktikum maupun kegiatan analisis di laboratorium. Namun, tidak jarang pelajar atau praktisi merasa kesulitan ketika harus melakukan perhitungan ini secara manual, apalagi saat menghadapi rumus stoikiometri ion yang berbeda-beda serta perhitungan eksponen yang cukup rumit.
-
-Sebagai respons terhadap kebutuhan tersebut, kami menghadirkan ChemSolv - Kalkulator Ksp, sebuah aplikasi berbasis web yang dirancang khusus untuk membantu pengguna dalam melakukan berbagai perhitungan kesetimbangan kimia larutan dengan cepat dan akurat. Aplikasi ini mencakup fitur:
-
-* Perhitungan Kelarutan (s) secara otomatis berdasarkan nilai Ksp yang diketahui.
-* Perhitungan Konstanta Ksp secara instan dari data kelarutan senyawa.
-* Prediksi Pembentukan Endapan dengan membandingkan nilai Quotient Reaksi (Qsp) dan Ksp.
-* Dukungan Multi-Stoikiometri untuk berbagai bentuk rumus senyawa (seperti tipe AB, AB₂, AB₃, hingga A₂B₃).
-
-Aplikasi ini dikembangkan sebagai bagian dari Tugas Akhir LPK (Laporan Praktikum Kimia) dengan tujuan memberikan kontribusi nyata dalam pembelajaran kimia larutan dan aktivitas laboratorium, khususnya di bidang kesetimbangan kimia. Dengan antarmuka yang sederhana, estetis, dan fungsional, diharapkan ChemSolv dapat menjadi alat bantu yang andal bagi siswa, mahasiswa, guru, analis, maupun siapa saja yang sedang mempelajari atau bekerja dengan kimia larutan.
-
-Gunakan aplikasi ini untuk memperkuat pemahaman konsep dan meningkatkan ketelitian dalam perhitungan kimia Anda. 
-
-Selamat menggunakan, dan semoga bermanfaat!
-    """)
+    st.markdown("Klik pada setiap kotak di bawah ini untuk melihat deskripsi lengkap:")
+    st.divider()
+    
+    # 1. Box Lipat: Deskripsi Web
+    with st.expander("📝 1. Deskripsi Web (Tentang ChemSolv)", expanded=False):
+        st.write("""
+        Dalam kimia fisik dan kimia analisis, memahami serta menghitung kesetimbangan larutan merupakan keterampilan dasar yang sangat penting. Materi kesetimbangan, mulai dari menentukan kelarutan suatu zat hingga memprediksi kapan endapan akan mulai terbentuk, menjadi bagian tak terpisahkan dari praktikum maupun kegiatan analisis di laboratorium. Namun, tidak jarang pelajar atau praktisi merasa kesulitan ketika harus melakukan perhitungan ini secara manual, apalagi saat menghadapi rumus stoikiometri ion yang berbeda-beda serta perhitungan eksponen yang cukup rumit.
+        
+        Sebagai respons terhadap kebutuhan tersebut, kami menghadirkan **ChemSolv - Kalkulator Ksp**, sebuah aplikasi berbasis web yang dirancang khusus untuk membantu pengguna dalam melakukan berbagai perhitungan kesetimbangan kimia larutan dengan cepat dan akurat.
+        """)
+        
+    # 2. Box Lipat: Deskripsi Fitur ke 1
+    with st.expander("📲 2. Deskripsi Fitur ke-1 (Kalkulator Kelarutan & Ksp)", expanded=False):
+        st.write("""
+        Fitur ini dirancang untuk memudahkan pengguna dalam melakukan konversi dan perhitungan otomatis antara nilai Kelarutan ($s$) dan nilai Konstanta Hasil Kali Kelarutan ($K_{sp}$).
+        
+        * **Hitung Kelarutan (s) dari Ksp:** Membantu mencari konsentrasi maksimum zat yang dapat larut dalam kondisi jenuh.
+        * **Hitung Ksp dari Kelarutan (s):** Menghitung nilai konstanta kesetimbangan berdasarkan data eksperimen kelarutan senyawa secara instan.
+        """)
+        
+    # 3. Box Lipat: Deskripsi Fitur ke 2
+    with st.expander("⬇️ 3. Deskripsi Fitur ke-2 (Prediksi Endapan)", expanded=False):
+        st.write("""
+        Fitur ini berfungsi untuk memprediksi apakah suatu campuran larutan kation dan anion akan menghasilkan endapan baru atau tidak. Perhitungan dilakukan secara otomatis dengan membandingkan nilai **Quotient Reaksi ($Q_{sp}$)** terhadap nilai **$K_{sp}$** senyawa bawaan.
+        
+        * Jika $Q_{sp} < K_{sp}$: Belum Terjadi Endapan (Semua Larut).
+        * Jika $Q_{sp} = K_{sp}$: Larutan Tepat Jenuh.
+        * Jika $Q_{sp} > K_{sp}$: Terjadi Endapan (Lewat Jenuh).
+        """)
+        
+    # 4. Box Lipat: Deskripsi Fitur ke 3
+    with st.expander("📊 4. Deskripsi Fitur ke-3 (Dukungan Multi-Stoikiometri)", expanded=False):
+        st.write("""
+        Fitur ke-3 ini memastikan keakuratan rumus perhitungan sistem dengan mendukung penuh variasi koefisien valensi senyawa kimia secara otomatis, mencakup tipe-tipe campuran berikut:
+        * **Tipe AB** (Contoh: $AgCl$, $BaSO_4$)
+        * **Tipe AB_2 / A_2B** (Contoh: $PbCl_2$, $Ag_2CrO_4$)
+        * **Tipe AB_3 / A_3B** (Contoh: $Al(OH)_3$, $Ag_3PO_4$)
+        * **Tipe A_2B_3 / A_3B_2** (Contoh: $As_2S_3$)
+        """)
 
 # FITUR 1: KALKULATOR KELARUTAN & KSP
 elif page == "Kalkulator Ksp":
@@ -268,3 +257,4 @@ Kelas: 1D
 🎓 Program Studi: Analisis Kimia
 🏛️ Politeknik AKA Bogor
     """)
+    
