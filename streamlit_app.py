@@ -4,7 +4,7 @@ import math
 # Halaman Web
 st.set_page_config(page_title="ChemSolv: Smart Solution for Solubility", layout="wide", page_icon="🧪")
 
-# CSS Kustom (Diperbarui untuk mengembalikan warna judul menu & menyejajarkan emotikon)
+# CSS Kustom (Warna judul menu gelap awal, emotikon sejajar, dan tombol seragam)
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
@@ -23,18 +23,18 @@ st.markdown("""
         padding-top: 2.5rem !important;
     }
     
-    /* Tulisan Menu ChemSolv kembali ke warna gelap awal & emotikon dipaksa sejajar */
+    /* Tulisan Menu ChemSolv warna gelap awal & emotikon sejajar sempurna */
     .judul-menu {
-        color: #31333F !important; /* Warna gelap semula */
-        font-size: 24px; /* Ukuran disesuaikan agar pas dalam satu baris */
+        color: #31333F !important; 
+        font-size: 24px; 
         font-weight: bold;
         margin-bottom: 20px;
         margin-top: 5px;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 8px; /* Jarak pas antara emotikon dan teks */
-        white-space: nowrap; /* Mencegah emotikon patah/turun ke bawah */
+        gap: 8px; 
+        white-space: nowrap; 
     }
     
     /* Gaya untuk semua tombol di sidebar agar seragam dan rapi */
@@ -46,7 +46,7 @@ st.markdown("""
         padding: 10px 20px !important;
         font-size: 15px !important;
         font-weight: bold !important;
-        width: 100% !important; /* Memaksa semua kotak melebar penuh secara seragam */
+        width: 100% !important; 
         display: block !important;
         margin-bottom: 5px !important;
         box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
@@ -64,14 +64,14 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# Inisialisasi session state untuk halaman jika belum ada
 if 'page' not in st.session_state: 
     st.session_state['page'] = "Home" 
 
+# --- KONTROL SIDEBAR ---
 with st.sidebar:
-    # Judul Menu dengan emotikon yang sejajar sempurna
     st.markdown('<div class="judul-menu">✨ Menu ChemSolv ✨</div>', unsafe_allow_html=True)
     
-    # Kotak berukuran sama mengikuti lebar sidebar
     if st.button("Home", use_container_width=True): 
         st.session_state['page'] = "Home"
     
@@ -84,10 +84,44 @@ with st.sidebar:
     if st.button("Tentang Kami", use_container_width=True):
         st.session_state['page'] = 'Tentang Kami'
         
-    page = st.session_state['page'] 
     st.sidebar.divider()
 
 
+# --- KONTROL DRAG-DOWN (SELECTBOX) PADA MAIN SCREEN ---
+# Menentukan indeks default pada selectbox utama agar sinkron dengan tombol sidebar
+ menu_options = [
+    "Home (Deskripsi Aplikasi)", 
+    "Kalkulator Ksp (Fitur 1)", 
+    "Prediksi Endapan (Fitur 2)", 
+    "Tentang Kami"
+]
+
+current_idx = 0
+if st.session_state['page'] == "Kalkulator Ksp":
+    current_idx = 1
+elif st.session_state['page'] == "Prediksi Endapan":
+    current_idx = 2
+elif st.session_state['page'] == "Tentang Kami":
+    current_idx = 3
+
+# Menampilkan menu drag-down tepat di bagian paling atas layar utama
+pilihan_main = st.selectbox("⬇️ **Pilih Halaman / Fitur Melalui Menu Ini:**", menu_options, index=current_idx)
+
+# Memperbarui status halaman berdasarkan pilihan di menu drag-down
+if pilihan_main == "Home (Deskripsi Aplikasi)":
+    st.session_state['page'] = "Home"
+elif pilihan_main == "Kalkulator Ksp (Fitur 1)":
+    st.session_state['page'] = "Kalkulator Ksp"
+elif pilihan_main == "Prediksi Endapan (Fitur 2)":
+    st.session_state['page'] = "Prediksi Endapan"
+elif pilihan_main == "Tentang Kami":
+    st.session_state['page'] = "Tentang Kami"
+
+# Mengambil variabel halaman yang aktif saat ini
+page = st.session_state['page']
+
+
+# --- KONTEN HALAMAN ---
 if page == "Home":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
     st.subheader("Selamat Datang di aplikasi ChemSolv!!")
@@ -151,11 +185,11 @@ elif page == "Kalkulator Ksp":
     # Logika Perhitungan: Ksp dari Kelarutan (s)
     else:
        s_val = st.number_input(
-    "Masukkan Nilai Kelarutan (s) dalam mol/L (contoh: 1 × 10⁻⁵):",
-    value=1.0e-5,
-    format="%.2e",
-    step=1e-6
-)
+            "Masukkan Nilai Kelarutan (s) dalam mol/L (contoh: 1 × 10⁻⁵):",
+            value=1.0e-5,
+            format="%.2e",
+            step=1e-6
+       )
        
        if st.button("Hitung Nilai Ksp", use_container_width=True):
             if "AB " in senyawa_type:
