@@ -4,7 +4,7 @@ import math
 # Halaman Web
 st.set_page_config(page_title="ChemSolv: Smart Solution for Solubility", layout="wide", page_icon="🧪")
 
-# CSS Kustom (Sudah diperbaiki untuk menyelaraskan tinggi menu dan main screen)
+# CSS Kustom (Sudah diperbaiki untuk menyelaraskan tinggi dan menyamakan ukuran kotak)
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
@@ -23,6 +23,7 @@ st.markdown("""
         padding-top: 2.5rem !important;
     }
     
+    /* Tulisan Menu ChemSolv berwarna pink sesuai warna kotak */
     .judul-menu {
         color: #d81b60 !important;
         font-size: 28px;
@@ -32,7 +33,8 @@ st.markdown("""
         text-align: center;
     }
     
-    [data-testid="stSidebar"] .stButton>button {
+    /* Gaya untuk semua tombol di sidebar agar seragam dan rapi */
+    [data-testid="stSidebar"] div[data-testid="stButton"] button {
         background-color: #d81b60 !important;
         color: white !important;
         border-radius: 15px !important;
@@ -40,14 +42,14 @@ st.markdown("""
         padding: 10px 20px !important;
         font-size: 15px !important;
         font-weight: bold !important;
-        width: 100% !important; /* Membuat tombol menu melebar rapi seragam */
+        width: 100% !important; /* Memaksa semua kotak melebar penuh secara seragam */
         display: block !important;
         margin-bottom: 5px !important;
         box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
         transition: 0.2s;
     }
     
-    [data-testid="stSidebar"] .stButton>button:hover {
+    [data-testid="stSidebar"] div[data-testid="stButton"] button:hover {
         background-color: #c2185b !important;
         transform: scale(1.03);
     }
@@ -62,19 +64,20 @@ if 'page' not in st.session_state:
     st.session_state['page'] = "Home" 
 
 with st.sidebar:
-    # Menggunakan HTML custom agar class .judul-menu aktif dan sejajar dengan judul utama
+    # Judul Menu menggunakan warna pink #d81b60
     st.markdown('<div class="judul-menu">✨ Menu ChemSolv ✨</div>', unsafe_allow_html=True)
     
-    if st.button("Home"): 
+    # Ditambahkan use_container_width=True agar semua kotak berukuran sama mengikuti lebar sidebar
+    if st.button("Home", use_container_width=True): 
         st.session_state['page'] = "Home"
     
-    if st.button("Kalkulator Ksp"): 
+    if st.button("Kalkulator Ksp", use_container_width=True): 
         st.session_state['page'] = "Kalkulator Ksp"
         
-    if st.button("Prediksi Endapan"):
+    if st.button("Prediksi Endapan", use_container_width=True):
         st.session_state['page'] = 'Prediksi Endapan'
         
-    if st.button("Tentang Kami"):
+    if st.button("Tentang Kami", use_container_width=True):
         st.session_state['page'] = 'Tentang Kami'
         
     page = st.session_state['page'] 
@@ -123,7 +126,7 @@ elif page == "Kalkulator Ksp":
         ksp_val = st.number_input("**Masukkan Nilai Ksp {Gunakan format e (e adalah × 10 pangkat), contoh: 1.0e-10}:**", 
                                    value=1.0e-10, format="%.2e", step=1e-11)
         
-        if st.button("Hitung Kelarutan (s)"):
+        if st.button("Hitung Kelarutan (s)", use_container_width=True):
             if "AB " in senyawa_type:
                 s = math.sqrt(ksp_val)
                 rumus = r"K_{sp} = s^2 \implies s = \sqrt{K_{sp}}"
@@ -150,7 +153,7 @@ elif page == "Kalkulator Ksp":
     step=1e-6
 )
        
-       if st.button("Hitung Nilai Ksp"):
+       if st.button("Hitung Nilai Ksp", use_container_width=True):
             if "AB " in senyawa_type:
                 ksp = s_val ** 2
                 rumus = r"K_{sp} = s^2"
@@ -193,7 +196,7 @@ elif page == "Prediksi Endapan":
 
     st.divider()
 
-    if st.button("Hitung & Prediksi"):
+    if st.button("Hitung & Prediksi", use_container_width=True):
         # Menghitung Qsp
         qsp = (konsentrasi_kation ** koefisien_kation) * (konsentrasi_anion ** koefisien_anion)
         
