@@ -122,15 +122,6 @@ if page == "Home":
         * Jika $Q_{sp} > K_{sp}$: Terjadi Endapan (Lewat Jenuh).
         """)
         
-    # 4. Box Lipat: Deskripsi Fitur ke 3
-    with st.expander("📊 4. Deskripsi Fitur ke-3 (Dukungan Multi-Stoikiometri)", expanded=False):
-        st.write("""
-        Fitur ke-3 ini memastikan keakuratan rumus perhitungan sistem dengan mendukung penuh variasi koefisien valensi senyawa kimia secara otomatis, mencakup tipe-tipe campuran berikut:
-        * **Tipe AB** (Contoh: $AgCl$, $BaSO_4$)
-        * **Tipe AB_2 / A_2B** (Contoh: $PbCl_2$, $Ag_2CrO_4$)
-        * **Tipe AB_3 / A_3B** (Contoh: $Al(OH)_3$, $Ag_3PO_4$)
-        * **Tipe A_2B_3 / A_3B_2** (Contoh: $As_2S_3$)
-        """)
 
 # FITUR 1: KALKULATOR KELARUTAN & KSP
 elif page == "Kalkulator Ksp":
