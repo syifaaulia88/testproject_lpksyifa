@@ -89,7 +89,8 @@ with st.sidebar:
 
 # --- KONTROL DRAG-DOWN (SELECTBOX) PADA MAIN SCREEN ---
 # Menentukan indeks default pada selectbox utama agar sinkron dengan tombol sidebar
- menu_options = [
+ 
+menu_options = [
     "Home (Deskripsi Aplikasi)", 
     "Kalkulator Ksp (Fitur 1)", 
     "Prediksi Endapan (Fitur 2)", 
