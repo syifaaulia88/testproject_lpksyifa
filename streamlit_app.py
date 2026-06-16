@@ -1,54 +1,57 @@
 import streamlit as st
 import math
 
-# Konfigurasi Halaman Web
+# Halaman Web
 st.set_page_config(page_title="ChemSolv: Smart Solution for Solubility", layout="wide", page_icon="🧪")
 
-# 2. Injeksi CSS Kustom (Sidebar Hijau Pastel, Menu & Tombol Pink Tua)
+# CSS Kustom (Sudah diperbaiki untuk menyelaraskan tinggi menu dan main screen)
 st.markdown("""
     <style>
-    /* Mengubah latar belakang layar utama menjadi Pink Soft/Pastel agar tidak putih kaku */
     [data-testid="stAppViewContainer"] {
         background-color: #fff0f3 !important;
     }
 
-    /* Mengubah latar belakang Sidebar menjadi HIJAU PASTEL */
     [data-testid="stSidebar"] {
         background-color: #e2f0d9 !important; /* Hijau pastel lembut */
     }
     
-    /* Mengubah warna teks judul "Menu Kalkulator" menjadi PINK TUA */
-    .judul-menu {
-        color: #d81b60 !important; /* Pink tua */
-        font-size: 26px;
-        font-weight: bold;
-        margin-bottom: 25px;
-        margin-top: -20px;
+    /* Menyamakan posisi atas (padding) antara main area dan sidebar */
+    .block-container {
+        padding-top: 2.5rem !important;
+    }
+    [data-testid="stSidebarUserContent"] {
+        padding-top: 2.5rem !important;
     }
     
-    /* Mengubah gaya tombol di sidebar (Warna PINK TUA & Membulat) */
+    .judul-menu {
+        color: #d81b60 !important;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 5px;
+        text-align: center;
+    }
+    
     [data-testid="stSidebar"] .stButton>button {
-        background-color: #d81b60 !important; /* Pink tua */
+        background-color: #d81b60 !important;
         color: white !important;
-        border-radius: 15px !important; /* Membuat sudut membulat */
+        border-radius: 15px !important;
         border: none !important;
         padding: 10px 20px !important;
         font-size: 15px !important;
         font-weight: bold !important;
-        width: auto !important; /* Lebar otomatis mengikuti panjang teks */
+        width: 100% !important; /* Membuat tombol menu melebar rapi seragam */
         display: block !important;
-        margin-bottom: -5px !important; /* Jarak antar tombol */
+        margin-bottom: 5px !important;
         box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
         transition: 0.2s;
     }
     
-    /* Efek saat tombol di sidebar disentuh kursor (Hover) */
     [data-testid="stSidebar"] .stButton>button:hover {
-        background-color: #c2185b !important; /* Pink lebih gelap saat di-hover */
+        background-color: #c2185b !important;
         transform: scale(1.03);
     }
     
-    /* Merapikan tampilan container input di layar utama */
     .stHeader h2 {
         color: #d81b60;
     }
@@ -57,8 +60,11 @@ st.markdown("""
 
 if 'page' not in st.session_state: 
     st.session_state['page'] = "Home" 
+
 with st.sidebar:
-    st.title("✨ Menu ChemSolv ✨")
+    # Menggunakan HTML custom agar class .judul-menu aktif dan sejajar dengan judul utama
+    st.markdown('<div class="judul-menu">✨ Menu ChemSolv ✨</div>', unsafe_allow_html=True)
+    
     if st.button("Home"): 
         st.session_state['page'] = "Home"
     
@@ -70,6 +76,7 @@ with st.sidebar:
         
     if st.button("Tentang Kami"):
         st.session_state['page'] = 'Tentang Kami'
+        
     page = st.session_state['page'] 
     st.sidebar.divider()
 
@@ -78,25 +85,23 @@ if page == "Home":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
     st.subheader("Selamat Datang di aplikasi ChemSolv!!")
     st.write("""
-
 Dalam kimia fisik dan kimia analisis, memahami serta menghitung kesetimbangan larutan merupakan keterampilan dasar yang sangat penting. Materi kesetimbangan, mulai dari menentukan kelarutan suatu zat hingga memprediksi kapan endapan akan mulai terbentuk, menjadi bagian tak terpisahkan dari praktikum maupun kegiatan analisis di laboratorium. Namun, tidak jarang pelajar atau praktisi merasa kesulitan ketika harus melakukan perhitungan ini secara manual, apalagi saat menghadapi rumus stoikiometri ion yang berbeda-beda serta perhitungan eksponen yang cukup rumit.
-​Sebagai respons terhadap kebutuhan tersebut, kami menghadirkan ChemSolv - Kalkulator Ksp, sebuah aplikasi berbasis web yang dirancang khusus untuk membantu pengguna dalam melakukan berbagai perhitungan kesetimbangan kimia larutan dengan cepat dan akurat. Aplikasi ini mencakup fitur:
+
+Sebagai respons terhadap kebutuhan tersebut, kami menghadirkan ChemSolv - Kalkulator Ksp, sebuah aplikasi berbasis web yang dirancang khusus untuk membantu pengguna dalam melakukan berbagai perhitungan kesetimbangan kimia larutan dengan cepat dan akurat. Aplikasi ini mencakup fitur:
 
 * Perhitungan Kelarutan (s) secara otomatis berdasarkan nilai Ksp yang diketahui.
 * Perhitungan Konstanta Ksp secara instan dari data kelarutan senyawa.
 * Prediksi Pembentukan Endapan dengan membandingkan nilai Quotient Reaksi (Qsp) dan Ksp.
 * Dukungan Multi-Stoikiometri untuk berbagai bentuk rumus senyawa (seperti tipe AB, AB₂, AB₃, hingga A₂B₃).
 
-​Aplikasi ini dikembangkan sebagai bagian dari Tugas Akhir LPK (Laporan Praktikum Kimia) dengan tujuan memberikan kontribusi nyata dalam pembelajaran kimia larutan dan aktivitas laboratorium, khususnya di bidang kesetimbangan kimia. Dengan antarmuka yang sederhana, estetis, dan fungsional, diharapkan ChemSolv dapat menjadi alat bantu yang andal bagi siswa, mahasiswa, guru, analis, maupun siapa saja yang sedang mempelajari atau bekerja dengan kimia larutan.
-​Gunakan aplikasi ini untuk memperkuat pemahaman konsep dan meningkatkan ketelitian dalam perhitungan kimia Anda. 
+Aplikasi ini dikembangkan sebagai bagian dari Tugas Akhir LPK (Laporan Praktikum Kimia) dengan tujuan memberikan kontribusi nyata dalam pembelajaran kimia larutan dan aktivitas laboratorium, khususnya di bidang kesetimbangan kimia. Dengan antarmuka yang sederhana, estetis, dan fungsional, diharapkan ChemSolv dapat menjadi alat bantu yang andal bagi siswa, mahasiswa, guru, analis, maupun siapa saja yang sedang mempelajari atau bekerja dengan kimia larutan.
+
+Gunakan aplikasi ini untuk memperkuat pemahaman konsep dan meningkatkan ketelitian dalam perhitungan kimia Anda. 
 
 Selamat menggunakan, dan semoga bermanfaat!
-
     """)
 
-# ==========================================
 # FITUR 1: KALKULATOR KELARUTAN & KSP
-# ==========================================
 elif page == "Kalkulator Ksp":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
     st.subheader("📲 Kalkulator Kelarutan dan Ksp")
@@ -116,7 +121,7 @@ elif page == "Kalkulator Ksp":
     # Logika Perhitungan: Kelarutan (s) dari Ksp
     if mode == "Hitung Kelarutan (s) dari nilai Ksp":
         ksp_val = st.number_input("**Masukkan Nilai Ksp {Gunakan format e (e adalah × 10 pangkat), contoh: 1.0e-10}:**", 
-                                  value=1.0e-10, format="%.2e", step=1e-11)
+                                   value=1.0e-10, format="%.2e", step=1e-11)
         
         if st.button("Hitung Kelarutan (s)"):
             if "AB " in senyawa_type:
@@ -144,7 +149,7 @@ elif page == "Kalkulator Ksp":
     format="%.2e",
     step=1e-6
 )
-        
+       
        if st.button("Hitung Nilai Ksp"):
             if "AB " in senyawa_type:
                 ksp = s_val ** 2
@@ -163,9 +168,7 @@ elif page == "Kalkulator Ksp":
             st.info("Rumus yang digunakan:")
             st.latex(rumus)
 
-# ==========================================
 # FITUR 2: PREDIKSI ENDAPAN (Qsp vs Ksp)
-# ==========================================
 elif page == "Prediksi Endapan":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
     st.subheader("⬇️ Prediksi Endapan")
@@ -205,26 +208,22 @@ elif page == "Prediksi Endapan":
         else:
             st.success("Hasil: Qsp < Ksp. **Tidak Terjadi Endapan** (Semua larut). 💧")
 
-#OKE#
+# PAGE TENTANG KAMI PERKENALAN NAMA ANGGOTA KELOMPOK
 elif page == "Tentang Kami":
     st.title("🧪 ChemSolv: Smart Solution for Solubility")
     st.write("""
-
 👨‍💻 Tim Pengembang
 Aplikasi ini merupakan hasil Proyek Tugas Website untuk mata kuliah Logika Pemrograman Komputer.
 
 👥 Anggota Kelompok:
+- Athiyah Amini Azzahra — 2560587 
+- Ryel Fandralaro — 2560766 
+- Syifa Aulia Farani Pasha — 2560792 
+- Zahra Fitria Sukmawan — 2560809 
+- Zalika Imani Hamida — 2560810 
 
-- Athiyah Amini Azzahra — 2560587  
-- Ryel Fandralaro  — 2560766 
-- Syifa Aulia Farani Pasha   — 2560792  
-- Zahra Fitria Sukmawan  — 2560809  
-- Zalika Imani Hamida  — 2560810  
 Kelas: 1D
-
 🎓 Program Studi: Analisis Kimia
 🏛️ Politeknik AKA Bogor
-
     """)
-
     
