@@ -4,7 +4,7 @@ import math
 # Halaman Web
 st.set_page_config(page_title="ChemSolv: Smart Solution for Solubility", layout="wide", page_icon="🧪")
 
-# CSS Kustom (Sudah diperbaiki untuk menyelaraskan tinggi dan menyamakan ukuran kotak)
+# CSS Kustom (Diperbarui untuk mengembalikan warna judul menu & menyejajarkan emotikon)
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
@@ -23,14 +23,18 @@ st.markdown("""
         padding-top: 2.5rem !important;
     }
     
-    /* Tulisan Menu ChemSolv berwarna pink sesuai warna kotak */
+    /* Tulisan Menu ChemSolv kembali ke warna gelap awal & emotikon dipaksa sejajar */
     .judul-menu {
-        color: #d81b60 !important;
-        font-size: 28px;
+        color: #31333F !important; /* Warna gelap semula */
+        font-size: 24px; /* Ukuran disesuaikan agar pas dalam satu baris */
         font-weight: bold;
         margin-bottom: 20px;
         margin-top: 5px;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px; /* Jarak pas antara emotikon dan teks */
+        white-space: nowrap; /* Mencegah emotikon patah/turun ke bawah */
     }
     
     /* Gaya untuk semua tombol di sidebar agar seragam dan rapi */
@@ -64,10 +68,10 @@ if 'page' not in st.session_state:
     st.session_state['page'] = "Home" 
 
 with st.sidebar:
-    # Judul Menu menggunakan warna pink #d81b60
+    # Judul Menu dengan emotikon yang sejajar sempurna
     st.markdown('<div class="judul-menu">✨ Menu ChemSolv ✨</div>', unsafe_allow_html=True)
     
-    # Ditambahkan use_container_width=True agar semua kotak berukuran sama mengikuti lebar sidebar
+    # Kotak berukuran sama mengikuti lebar sidebar
     if st.button("Home", use_container_width=True): 
         st.session_state['page'] = "Home"
     
@@ -229,4 +233,3 @@ Kelas: 1D
 🎓 Program Studi: Analisis Kimia
 🏛️ Politeknik AKA Bogor
     """)
-    
